@@ -1,0 +1,12 @@
+
+
+En esta carpeta se ecnuentran 3 archivos . dot de grafos del Modelo Erdos Renyi y sus respectivas Imagenes.
+
+1) El primero es un grafo de 30 nodos del modelo Erdos Renyi (Erdos_Renyi_30n_120m) con una m de 120 aristas que fue ingresada por el usuario y su imagen esta en el archivo (Erdos_30n.png)
+
+2) El segundo es un grafo de 100 nodos del modelo Erdos Renyi (Erdos_Renyi_100n_400m) con una m de 400 aristas que fue ingresada por el usuario y su imagen esta en el archivo (Erdos_100n.png)
+
+3) El tercero es un grafo de 500 nodos del modelo Erdos Renyi (Erdos_Renyi_500n_2000m) con una m de 2000 aristas que fue ingresada por el usuario y su imagen esta en el archivo (Erdos_500n.png)
+
+
+

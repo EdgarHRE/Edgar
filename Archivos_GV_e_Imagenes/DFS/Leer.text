@@ -1,0 +1,15 @@
+
+
+En esta carpeta se ecnuentran 3 archivos . dot de grafos DFS y sus respectivas Imagenes. 
+y ademas incluimos el grafo original que es una grafo aleatorio donde se aplico la funcion DFS.
+
+1) El primero es un grafo de 30 nodos usando la funcion DFS (DFS_30n.gv) y su imagen esta en el archivo (DFS_30n.png) y como nodo raiz seleccionamos el 17
+* Ademas incluimos el grafo original aleatorio (GA_30n_4_DFS.gv) y su imagen (GA_30n_4_DFS.png)
+
+2) El segundo es un grafo de 100 nodos usando la funcion DFS (DFS_100n.gv) y su imagen esta en el archivo (DFS_100n.png) y como nodo raiz seleccionamos el 24
+* Ademas incluimos el grafo original aleatorio (GA_100n_4_DFS.gv) y su imagen (GA_100n_4_DFS.png)
+
+3)  El tercero es un grafo de 500 nodos usando la funcion DFS (DFS_500n.gv) y su imagen esta en el archivo (DFS_500n.png) y como nodo raiz seleccionamos el 259
+* Ademas incluimos el grafo original aleatorio (GA_500n_4_DFS.gv) y su imagen (GA_500n_4_DFS.png)
+
+

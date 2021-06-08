@@ -1,0 +1,12 @@
+
+
+En esta carpeta se ecnuentran 3 archivos . dot de grafos del Modelo Gilbert y sus respectivas Imagenes.
+
+1) El primero es un grafo de 30 nodos del modelo Gilbert (Gilbert_30n_p0.7.gv) con una probabilidad p de 0.7 en la conexion de sus aristas y su imagen esta en el archivo (Gilbert_30n_p0.7.png)
+
+2) El segundo es un grafo de 100 nodos del modelo Gilbert (Gilbert_100n_p0.2.gv) con una probabilidad p de 0.7 en la conexion de sus aristas y su imagen esta en el archivo (Gilbert_100n_p0.2.png)
+
+3) El tercero es un grafo de 500 nodos del modelo Gilbert (Gilbert_500n_p0.1.gv) con una probabilidad p de 0.1 en la conexion de sus aristas y su imagen esta en el archivo (Gilbert_500n_p0.1.png)
+
+
+

@@ -1,0 +1,12 @@
+
+
+En esta carpeta se ecnuentran 3 archivos . dot de grafos del Modelo Geografico Simple y sus respectivas Imagenes.
+
+1) El primero es un grafo de 30 nodos del modelo Geografico Simple (Geo_S_30n_r0.7.gv) con una r de 0.7, esa r es una distancia en la conexion de sus aristas y su imagen esta en el archivo (Geo_30n_r0.7.png)
+
+2) El segundo es un grafo de 100 nodos del modelo Geografico Simple (Geo_S_100n_r0.9.gv) con una r de 0.9, esa r es una distancia en la conexion de sus aristas y su imagen esta en el archivo (Geo_100n_r0.9.png)
+
+3) El tercero es un grafo de 500 nodos del modelo Geografico Simple (Geo_S_500n_r0.9.gv) con una r de 0.9, esa r es una distancia en la conexion de sus aristas y su imagen esta en el archivo (Geo_500n_r0.9.png)
+
+
+

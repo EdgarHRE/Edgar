@@ -1,0 +1,12 @@
+
+
+En esta carpeta se ecnuentran 3 archivos . dot de grafos del Modelo Barabasi y sus respectivas Imagenes.
+
+1) El primero es un grafo de 30 nodos del modelo Barabasi (Barabasi_30n_15d.gv) con una d = 15 que fue ingresada por el usuario y su imagen esta en el archivo (Barabasi_30n.png)
+
+2) El segundo es un grafo de 100 nodos del modelo Barabasi (Barabasi_100n_25d.gv) con una d = 25 que fue ingresada por el usuario y su imagen esta en el archivo (Barabasi_100n.png)
+
+3) El tercero es un grafo de 500 nodos del modelo Barabasi (Barabasi_500n_25d.gv) con una d = 25 que fue ingresada por el usuario y su imagen esta en el archivo (Barabasi_500n.png)
+
+
+
