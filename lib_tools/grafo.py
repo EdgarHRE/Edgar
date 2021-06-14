@@ -1,16 +1,13 @@
-from BFS_DFS import GRAFO
 import collections
-from lib_tools.Modelo_G_Aleatorio import Grafo_A
-
 from graphviz import Digraph
 from graphviz import Graph as Graphviz
 from lib_tools import aristas
 from lib_tools import nodos
+import sys
 
-# Attribute to indicate if is a directed graph
 DIRECTED = "DIRECTED"
-RENDER = False
 DISCOVERED = "DISCOVERED"
+RENDER = False
 
 
 class Grafo:
@@ -26,11 +23,46 @@ class Grafo:
         
         self.atrbt = atrbt
         
+    def Arbol_Dijktra(self,nodo):
+        vertices = []
+        distancia = {}
+        flag = {}
+        nodo_encontrado = {}
+        
+        GRAFO = Grafo(atrbt = {DIRECTED: True})
+        GRAFO.Producir_Vertices(nodos.Nodo(nodo, {"WEIGHT": 0}))
+        
+        for nodo_a in self.Dijkstra_Nodos():
+            distancia[nodo_a] = float('nodo info')
+            flag[nodo_a] = None
+            nodo_encontrado[nodos] = False
+    
+        distancia[nodo] = 0
+        vertices.append((nodo, distancia[nodo]))
+    
+        while len(vertices) != 0:
+            nodo_b = min(vertices, key = lambda x: x[1])
+            vertices.remove(nodo_b)
+            nodo_b = nodo_b[0]
+            nodo_encontrado[nodo_b] = True
+            for nodo_a in self.Trayectoria_Adyacente(nodo_b):
+                if not nodo_encontrado[nodo_a]:
+                    v = distancia[nodo_b] + self.Dijkstra_ID((nodo_b,nodo_a)).atrbt["WEIGHT"]
+                    if v < distancia[nodo_a]:
+                        distancia[nodo_a] = v
+                        flag[nodo_a] = nodo_b
+                        vertices.append((nodo_a, distancia[nodo_a]))
+                        GRAFO.Producir_Vertices(nodos.Nodo(nodo_a, {"WEIGHT": distancia[nodo_a]}))
+                        GRAFO.Producir_Aristas(aristas.Arista(nodo_b, nodo_a, {"WEIGHT": distancia[nodo_a]}))
+                    
+        return GRAFO
+        
     def Aristas_Aleatorias(self):
         aristas = []
         for (key, value) in self.num_aristas.keys():
             aristas.append((key, value))
-            return aristas
+        
+        return aristas
     
     
     def BFS(self, s):
@@ -47,11 +79,17 @@ class Grafo:
                 conexion = self.ID(arista)
                 if DISCOVERED not in conexion.atributos or conexion.atributos[DISCOVERED] is False:
                     conexion.atributos[DISCOVERED] = True
-                    GRAFO_bfs.append(conexion.id)
+                    q.append(conexion.id)
                     GRAFO_bfs.Producir_Vertices(conexion)
                     GRAFO_bfs.Producir_Aristas(aristas.Arista(nodo, arista), True)
         
         return GRAFO_bfs
+    
+    def Buscar(self, paridad, nodo_primario):
+        if paridad[nodo_primario] == nodo_primario:
+            return nodo_primario
+        return self.Buscar(paridad, paridad[nodo_primario])
+        
     
     def DFS(self, root):
         GRAFO_dfs = Grafo(atrbt={DIRECTED: True})
@@ -73,8 +111,31 @@ class Grafo:
     
     def DFS_R(self, root):
         GRAFO_dfsr = Grafo(atrbt={DIRECTED: True})
-        return self.Recursividad(GRAFO_dfsr, ('#', root))      
+        return self.Recursividad(GRAFO_dfsr, ('#', root)) 
     
+    def Dijkstra_ID(self,id,directed = False):
+        (nodo_init,nodo_fin) = id
+        for (init,fin) in self.num_aristas.keys():
+            if directed:
+                if (init,fin) == (nodo_init,nodo_fin):
+                    return self.num_aristas[(init,fin)]
+            
+            else:
+                if (init,fin) == (nodo_init,nodo_fin) or (init,fin) == (nodo_fin,nodo_init):
+                    return self.num_aristas[(init,fin)]
+        
+        return None
+                    
+    
+    def Dijkstra_Nodos(self):
+        return self.num_nodos
+    
+    
+    def Ditto_Kruskal(self):
+        RKRUSKAL = Grafo(atrbt = self.atrbt.copy(), num_nodos = self.num_nodos.copy(), num_aristas = self.num_aristas.copy())
+        return RKRUSKAL
+               
+               
     def graphiv(self, n_archivo, atri_nodo = None, source = None, atri_arista = None):
         dot = Graphviz()
         
@@ -91,8 +152,8 @@ class Grafo:
         else:
         # Map graph to graphviz structure and add vertex attribute
             for n in list(self.num_nodos.keys()):
-                label = "Nodo: " + str(n)
-                source_label = "Nodo source: " + str(source) if source is not None else ""
+                label = "Nodo actual: " + str(n)
+                source_label = "Nodo inicial: " + str(source) if source is not None else ""
                 label = label + "\n" + source_label
                 label = label + "\n" + atri_nodo + " (" + str(self.num_nodos[n].atributos[atri_nodo]) + ")"
                 dot.node(str(n), label)
@@ -104,10 +165,10 @@ class Grafo:
         else:
             for a in self.Aristas_Aleatorias():
                 (s,t) = a
-                flag_arista = self.num_arista[(s,t)].atrbt["WEIGHT"]
+                flag_arista = self.num_aristas[(s,t)].atrbt["WEIGHT"]
                 dot.edge(str(s), str(t), label=str(flag_arista))
                 
-        file = open("/home/dreadscythe/ED/Programas/Proyecto1/archivos_gv/" + n_archivo + ".gv", "w")
+        file = open("/home/dreadscythe/ED/Programas/Algoritmos/" + n_archivo + ".gv", "w")
         file.write(dot.source)
         file.close()
         return dot
@@ -117,9 +178,89 @@ class Grafo:
             return self.num_nodos[id]
         else:
             return None
+    
+    def Kruskal(self):
         
-    def Producir_Aristas(self, arista, directed=False, auto=False):    
+        KRUSKAL = Grafo(atrbt = {DIRECTED:False})
+        paridad  = []
+        rango = []
         
+        for nodo in self.Kruskal_Nodos():
+            paridad.append(nodo)
+            rango.append(0)
+        
+        list_aristas = sorted(self.num_aristas.items(), key = lambda arista: arista[1].atrbt["WEIGHT"])
+        
+        for arista in list_aristas:
+            (n_init, nodo_final) = arista[0]
+            nodo_primario = self.Buscar(paridad, n_init)
+            nodo_secundario = self.Buscar(paridad, nodo_final)
+            if nodo_primario != nodo_secundario:
+                KRUSKAL.Producir_Vertices(nodos.Nodo(n_init))
+                KRUSKAL.Producir_Vertices(nodos.Nodo(nodo_final))
+                KRUSKAL.Producir_Aristas(aristas.Arista(n_init,nodo_final,{"WEIGHT": arista[1].atrbt["WEIGHT"]}))
+                if rango[nodo_primario] < rango[nodo_secundario]:
+                    paridad[nodo_primario] = nodo_secundario
+                    rango[nodo_secundario] += 1
+                else:
+                    paridad[nodo_secundario] = nodo_primario
+                    rango[nodo_primario] += 1
+        
+        return KRUSKAL
+    
+    
+    def Kruskal_Nodos(self):
+        return self.num_nodos
+    
+    def Prim(self):
+        PRIM = Grafo(atrbt = {DIRECTED: False})
+        distancia = [sys.maxsize] * len(self.num_nodos)
+        paridad = [None] * len(self.num_nodos)
+        flag = [False] * len(self.num_nodos)
+        distancia[0] = 0
+        paridad[0] = -1
+        
+        for nodo in self.num_nodos:
+            distancia_minima = 0
+            min = sys.maxsize
+            for nodo_b in self.num_nodos:
+                if distancia[nodo_b] < min and flag[nodo_b] is False:
+                    min = distancia[nodo_b]
+                    distancia_minima = nodo_b
+            
+            nodo_a = distancia_minima
+            flag[nodo_a] = True
+            PRIM.Producir_Vertices(nodos.Nodo(nodo_a))
+            
+            for nodo_b in self.Trayectoria_Adyacente(nodo_a):
+                if flag[nodo_b] is False and distancia[nodo_b] > self.Prim_ID((nodo_a, nodo_b)).atrbt["WEIGHT"]:
+                    distancia[nodo_b] = self.Prim_ID((nodo_a, nodo_b)).atrbt["WEIGHT"]
+                    paridad[nodo_b] = nodo_a
+        
+        for nodo in self.num_nodos:
+            if nodo  == 0:
+                continue
+            if paridad[nodo] is not None:
+                PRIM.Producir_Aristas(aristas.Arista(paridad[nodo], nodo, {"WEIGHT": self.Prim_ID((paridad[nodo], nodo)).atrbt["WEIGHT"]}))    
+        
+        return PRIM
+        
+    def Prim_ID(self,id,directed = False):
+        (nodo_init,nodo_fin) = id
+        for (init,fin) in self.num_aristas.keys():
+            if directed:
+                if (init,fin) == (nodo_init,nodo_fin):
+                    return self.num_aristas[(init,fin)]
+         
+            else:
+                if (init,fin) == (nodo_init,nodo_fin) or (init,fin) == (nodo_fin,nodo_init):
+                    return self.num_aristas[(init,fin)]
+     
+        return None
+                
+            
+        
+    def Producir_Aristas(self, arista, directed = False, auto = False):    
         (nodo_a, nodo_b) = arista.P2P()
         if nodo_a in self.num_nodos.keys() and nodo_b in self.num_nodos.keys():
             if directed:
@@ -204,5 +345,73 @@ class Grafo:
             for arista in self.Trayectoria_Adyacente(conexion.id, t_adyacente):
                 self.Recursividad(GRAFO_dfsr, (conexion.id, arista))
         
-        return GRAFO    
+        return GRAFO_dfsr
     
+    
+    def Reverso_Kruskal(self):
+        R_KRUSKAL = self.Ditto_Kruskal()
+        l = sorted(self.num_aristas.items(), key = lambda a: a[1].atrbt["WEIGHT"], reverse = True)
+        for a in l:
+            R_KRUSKAL.num_aristas.pop(a[0])
+        
+            for nodo in self.num_nodos:
+                R_KRUSKAL.num_nodos[nodo].atributos["DISCOVERED"] = False
+            
+            if len(R_KRUSKAL.num_nodos) != len(R_KRUSKAL.BFS(0).num_nodos):
+                R_KRUSKAL.Producir_Aristas(a[1])
+        
+        return R_KRUSKAL
+    
+
+    
+    def Dijkstra(self, nodo_inicial, nodo_final):
+        vertices = []
+        distancia= {}
+        flag = {}
+        nodo_encontrado = {}
+        
+        for nodo in self.Dijkstra_Nodos():
+            distancia[nodo] = float('inf')
+            flag[nodo] = None
+            nodo_encontrado[nodo] = False
+        
+        distancia[nodo_inicial] = 0
+        vertices.append((nodo_inicial, distancia[nodo_inicial]))
+        
+        while len(vertices) != 0:
+            nodo_b = min(vertices, key = lambda x:x[1])
+            vertices.remove(nodo_b)
+            nodo_b = nodo_b[0]
+            nodo_encontrado[nodo_b] = True
+            
+            if nodo_b == nodo_final:
+                break
+            
+            for nodo in self.Trayectoria_Adyacente(nodo_b):
+                if not nodo_encontrado[nodo]:
+                    v = distancia[nodo_b] + self.Dijkstra_ID((nodo_b,nodo)).atrbt["WEIGHT"]
+                    if v < distancia[nodo]:
+                        distancia[nodo] = v
+                        flag[nodo] = nodo_b
+                        vertices.append((nodo,distancia[nodo]))  
+        
+        
+        nodo_b = nodo_final
+        GRAFO = Grafo(atrbt={DIRECTED:True})
+        while nodo_b is not None:
+            GRAFO.Producir_Vertices(nodos.Nodo(nodo_b,{"WEIGHT": distancia[nodo_b]}))
+            if flag[nodo_b] is not None:
+                GRAFO.Producir_Vertices(nodos.Nodo(flag[nodo_b], {"WEIGHT":distancia[flag[nodo_b]]}))
+                GRAFO.Producir_Aristas(aristas.Arista(flag[nodo_b],nodo_b))
+                nodo_b = flag[nodo_b]
+            else:
+                break
+        
+        return GRAFO
+    
+    
+
+
+
+
+                
