@@ -14,6 +14,9 @@ B) BFS_DFS.py -> Es un menu donde se integran los 3 difrente tipos de funciones 
 2) Funion DFS
 3) Funcion DFS_Recursivo
 
+c) Dijkstra.py -> Es un menu donde se aplica la funcion Dijkstra para crear un grafo Aleatorio y apartir de ese grafo podemos aplicar el algoritmo Dijkstra las veces que el usuario desee.
+1) Funcion Dijkstra
+
 **************************************************************************************************************
 Se inclute una carpeta de lib_tools donde estan las librerias creadas de grafos,aristas,nodos, y las funciones pedidas.
 Se incluye una carpeta donde se incluyen los archivos GV y las imagenes de los grafos usando el software gephi como se solicito en cada proyecto, ademas un archivo .text donde vienen una breve explicacion d elo que contiene la carpeta.
