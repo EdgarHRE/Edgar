@@ -1,0 +1,24 @@
+
+
+En esta carpeta se encuentra el archivo (GA_75n_4_Dijstra.gv) que es el grafo generado aleatoriamente con su respectiva imagen del grafo (GA_75n_4_Dijkstra.png) en donde se puede observar los nodos enumerados y las aristas con pesos aleatorioa del (1, 50).
+
+Como lo indica el programa (Dijikstra.py) realizamos un menu donde podemos utilizar el grafo de 75 nodos creado  e ingresar un nodo de inicio y un nodo final para que se calcule el grafo por la funcion Dijistra.
+
+En este caso realizamos 3 pruebas al grafo que se genero y obtuvimos los siguientes resultados.
+
+1) En el archivo (Dijkstra_ni8_nf31.gv) se puede observar que el nodo inicial fue de 8 y el nodo final fue de 31, esto claro lo ingresamos de manera aleatoria por el suuario y obtuvimos el siguiente grafo aplicando la funcion Dijkstra (Dijkstra_75n_1.png).
+
+2) En el archivo (Dijkstra_ni29_nf73.gv) se puede observar que el nodo inicial fue de 29 y el nodo final fue de 73, esto claro lo ingresamos de manera aleatoria por el suuario y obtuvimos el siguiente grafo aplicando la funcion Dijkstra (Dijkstra_75n_2.png).
+
+3) En el archivo (Dijkstra_ni71_nf46.gv) se puede observar que el nodo inicial fue de 71 y el nodo final fue de 46, esto claro lo ingresamos de manera aleatoria por el suuario y obtuvimos el siguiente grafo aplicando la funcion Dijkstra (Dijkstra_75n_3.png).
+
+tambien creamos una grafo aleatorio de 250 nodos e ingresamos un nodo inicio y un nodo final para que se calcules la funcion Dijkstra
+
+
+En este caso realizamos 3 pruebas al grafo que se genero y obtuvimos los siguientes resultados.
+
+1) En el archivo (Dijkstra_ni2_nf201_250n) se puede observar que el nodo inicial fue de 2 y el nodo final fue de 201, esto claro lo ingresamos de manera aleatoria por el suuario y obtuvimos el siguiente grafo aplicando la funcion Dijkstra (Dijkstra_250n_1.png).
+
+2) En el archivo (Dijkstra_ni13_nf57_250n.gv) se puede observar que el nodo inicial fue de 13 y el nodo final fue de 57, esto claro lo ingresamos de manera aleatoria por el suuario y obtuvimos el siguiente grafo aplicando la funcion Dijkstra (Dijkstra_250n_2.png).
+
+3) En el archivo (Dijkstra_ni33_nf123_250n.gv) se puede observar que el nodo inicial fue de 33 y el nodo final fue de 123, esto claro lo ingresamos de manera aleatoria por el suuario y obtuvimos el siguiente grafo aplicando la funcion Dijkstra (Dijkstra_250n_3.png).
