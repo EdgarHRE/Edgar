@@ -1,0 +1,19 @@
+
+
+En la carperta de Prim como se indica la rubrica tenemos 2 archivos .gv de grafos del algoritmo Prim sus respectivas imagenes, ademas incluimos el grafo original que es una grafo aleatorio creado por el usuario.
+
+
+*********************************** Grafo con pocos nodos*************************************
+
+1) El primero es una grafo de 90 nodos aplicando el algoritmo Prim (Prim_90n.gv) y tenemos su imagen que esta en el archivo (Prim_90n.png), y el valor del MST es de 50 o en el nodo 50 que en la imagen (Prim_90n.png) el nodo para identificarlo es de color azul.
+
+* Ademas incluimos el grafo original aleatorio que creamos (GA_90n_4_Prim.gv) y su imagen del grafo (GA_90n_Prim.png).
+
+
+
+******************************Grafo con muchos nodos*******************************************
+
+2) El segundo es un grafo de 250 nodos aplicando el algoritmo Prim (Prim_250n.gv) y tenemos su imagen que esta el archivo (Prim_250n.png), y el valor del MST es de 124 o en el nodo 124 que en la imagen (Prim_250n.png) el nodo para identificarlo es de color azul.
+
+* Ademas incluimos el grafo original aleatorio que creamos (GA_250n_4_Prim.gv) y su imagen del grafo (GA_250n_Priml.png).
+
