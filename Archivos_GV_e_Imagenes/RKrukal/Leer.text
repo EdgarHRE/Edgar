@@ -1,0 +1,19 @@
+
+
+En la carperta de RKruskal como se indica la rubrica tenemos 2 archivos .gv de grafos del algoritmo Kruskal Inverso con sus respectivas imagenes, ademas incluimos el grafo original que es una grafo aleatorio creado por el usuario.
+
+
+*********************************** Grafo con pocos nodos*************************************
+
+1) El primero es una grafo de 40 nodos aplicando el algoritmo Kruskal Inverso (RKruskal_40n.gv) y tenemos su imagen que esta en el archivo (RKruskal_40n.png), y el valor del MST es de 0 o en el nodo 0 que en la imagen (RKruskal_40n.png) el nodo para identificarlo es de color verde.
+
+* Ademas incluimos el grafo original aleatorio que creamos (GA_40n_4_RKruskal.gv) y su imagen del grafo (GA_40n_RKruskal.png).
+
+
+
+******************************Grafo con muchos nodos*******************************************
+
+2) El segundo es un grafo de 310 nodos aplicando el algoritmo Kruskal Inverso (RKruskal_310n.gv) y tenemos su imagen que esta el archivo (RKruskal_310n.png), y el valor del MST es de 0 o en el nodo 0 que en la imagen (RKruskal_310n.png) el nodo para identificarlo es de color verde.
+
+* Ademas incluimos el grafo original aleatorio que creamos (GA_310n_4_RKruskal.gv) y su imagen del grafo (GA_310n_RKruskal.png).
+
