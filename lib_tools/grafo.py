@@ -217,11 +217,11 @@ class Grafo:
         distancia = [sys.maxsize] * len(self.num_nodos)
         paridad = [None] * len(self.num_nodos)
         flag = [False] * len(self.num_nodos)
-        distancia[0] = 0
-        paridad[0] = -1
+        distancia[124] = 124
+        paridad[124] = -1
         
         for nodo in self.num_nodos:
-            distancia_minima = 0
+            distancia_minima = 124
             min = sys.maxsize
             for nodo_b in self.num_nodos:
                 if distancia[nodo_b] < min and flag[nodo_b] is False:
@@ -238,7 +238,7 @@ class Grafo:
                     paridad[nodo_b] = nodo_a
         
         for nodo in self.num_nodos:
-            if nodo  == 0:
+            if nodo  == 124:
                 continue
             if paridad[nodo] is not None:
                 PRIM.Producir_Aristas(aristas.Arista(paridad[nodo], nodo, {"WEIGHT": self.Prim_ID((paridad[nodo], nodo)).atrbt["WEIGHT"]}))    
@@ -329,7 +329,6 @@ class Grafo:
                     aristas.append((inicio, arribo))
         
         return aristas
-
 
     
     def Recursividad(self, GRAFO_dfsr, root):
