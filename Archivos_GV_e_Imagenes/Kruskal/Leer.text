@@ -1,0 +1,19 @@
+
+
+En la carperta de Kruskal como se indica la rubrica tenemos 2 archivos .gv de grafos del algoritmo Kruskal con sus respectivas imagenes, ademas incluimos el grafo original que es una grafo aleatorio creado por el usuario.
+
+
+*********************************** Grafo con pocos nodos*************************************
+
+1) El primero es una grafo de 45 nodos aplicando el algoritmo Kruskal (Kruskal_45n.gv) y tenemos su imagen que esta en el archivo (Kruskal_45n.png), y el valor del MST es de 14 o en el nodo 14 que en la imagen (Kruskal_45n.png) el nodo para identificarlo es de color rojo.
+
+* Ademas incluimos el grafo original aleatorio que creamos (GA_45n_4_Kruskal.gv) y su imagen del grafo (GA_45n_Kruskal.png).
+
+
+
+******************************Grafo con muchos nodos*******************************************
+
+2) El segundo es un grafo de 278 nodos aplicando el algoritmo Kruskal (Kruskal_278n.gv) y tenemos su imagen que esta el archivo (Kruskal_278n.png), y el valor del MST es de 11 o en el nodo 11 que en la imagen (Kruskal_278n.png) el nodo para identificarlo es de color rojo.
+
+* Ademas incluimos el grafo original aleatorio que creamos (GA_278n_4_Kruskal.gv) y su imagen del grafo (GA_278n_Kruskal.png).
+
